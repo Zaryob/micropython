@@ -283,7 +283,7 @@ STATIC void adcx_init_periph(ADC_HandleTypeDef *adch, uint32_t resolution) {
     adch->Init.DataAlign = ADC_DATAALIGN_RIGHT;
     adch->Init.DMAContinuousRequests = DISABLE;
     adch->Init.SamplingTimeCommon = ADC_SAMPLETIME_55CYCLES_5;    // ~4uS
-    #if defined(STM32F3)
+    #elif defined(STM32F3)
     adch->Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
     adch->Init.ScanConvMode = DISABLE;
     adch->Init.DataAlign = ADC_DATAALIGN_RIGHT;
@@ -320,7 +320,7 @@ STATIC void adcx_init_periph(ADC_HandleTypeDef *adch, uint32_t resolution) {
     HAL_ADCEx_Calibration_Start(adch, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
     #elif defined(STM32L4) || defined(STM32WB)
     HAL_ADCEx_Calibration_Start(adch, ADC_SINGLE_ENDED);
-    #elif defined(STM32F0)
+    #elif defined(STM32F3)
         #if defined(STM32F373xC) || defined(STM32F378xx)
             HAL_ADCEx_Calibration_Start(adch);
         #else
