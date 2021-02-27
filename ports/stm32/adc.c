@@ -74,7 +74,7 @@
 #define ADC_CAL2                ((uint16_t *)0x1ffff7c2)
 #define ADC_CAL_BITS            (12)
 
-#if defined(STM32F3)
+#elif defined(STM32F3)
 
 #define ADC_FIRST_GPIO_CHANNEL  (0)
 #define ADC_LAST_GPIO_CHANNEL   (15)
